@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reagan Lutwama - Web Developer Portfolio</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    color: #fff; 
+    min-height: 100vh;
+    line-height: 1.6;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.hero h1 { font-size: 2.5em; margin-bottom: 10px; color: #00d4ff; }
+.hero p { font-size: 1.2em; color: #b8c5d6; }
+.hero .badge {
+    display: inline-block;
+    background: #00d4ff;
+    color: #1a1a2e;
+    padding: 8px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Skills Section */
+.skills-section { margin-bottom: 40px; }
+.skills-section h2 { 
+    text-align: center; 
+    font-size: 2em; 
+    margin-bottom: 30px; 
+    color: #00d4ff;
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+}
+.skill-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,212,255,0.2);
+}
+.skill-card h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1.3em; }
+.skill-card .code-preview {
+    background: #0d1117;
+    border-radius: 10px;
+    padding: 15px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85em;
+    overflow-x: auto;
+    border: 1px solid #30363d;
+}
+.code-preview .comment { color: #8b949e; }
+.code-preview .keyword { color: #ff7b72; }
+.code-preview .string { color: #a5d6ff; }
+.code-preview .tag { color: #7ee787; }
+.code-preview .attr { color: #79c0ff; }
+.code-preview .function { color: #d2a8ff; }
+.code-preview .number { color: #79c0ff; }
+
+/* Demo Section */
+.demo-section { margin-bottom: 40px; }
+.demo-section h2 { 
+    text-align: center; 
+    font-size: 2em; 
+    margin-bottom: 30px; 
+    color: #00d4ff;
+}
+.demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+.demo-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+}
+.demo-card h3 { color: #00d4ff; margin-bottom: 15px; }
+.demo-box {
+    background: #0d1117;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #30363d;
+}
+
+/* Animated Button Demo */
+.animated-btn {
+    background: linear-gradient(45deg, #00d4ff, #7ee787);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    color: #1a1a2e;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    animation: pulse 2s infinite;
+}
+.animated-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0,212,255,0.5);
+}
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 5px rgba(0,212,255,0.3); }
+    50% { box-shadow: 0 0 20px rgba(0,212,255,0.6); }
+}
+
+/* CSS Animation Demo */
+.css-box {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #ff7b72, #ffa657);
+    border-radius: 10px;
+    animation: rotate 3s linear infinite;
+}
+@keyframes rotate {
+    0% { transform: rotate(0deg); border-radius: 10px; }
+    50% { transform: rotate(180deg); border-radius: 50%; }
+    100% { transform: rotate(360deg); border-radius: 10px; }
+}
+
+/* JS Counter Demo */
+.js-counter {
+    font-size: 3em;
+    font-weight: bold;
+    color: #00d4ff;
+    animation: countUp 2s ease-out forwards;
+}
+@keyframes countUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Grid Demo */
+.responsive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+.responsive-grid .grid-item {
+    background: #7ee787;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1a1a2e;
+    font-weight: bold;
+    font-size: 0.8em;
+}
+
+/* Services */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+.service-card {
+    background: rgba(255,255,255,0.08);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,212,255,0.2);
+}
+.service-card h3 { color: #00d4ff; margin-bottom: 15px; font-size: 1.3em; }
+.service-card p { color: #b8c5d6; margin-bottom: 15px; }
+.price { color: #00d4ff; font-size: 1.5em; font-weight: bold; }
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 40px;
+}
+.contact-section h2 { color: #00d4ff; margin-bottom: 20px; }
+.contact-section p { color: #b8c5d6; margin-bottom: 20px; }
+.contact-btn {
+    display: inline-block;
+    background: #00d4ff;
+    color: #1a1a2e;
+    padding: 15px 40px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: all 0.3s;
+    margin: 5px;
+}
+.contact-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0,212,255,0.4);
+}
+.paypal-btn {
+    background: #0070ba;
+    color: white;
+}
+
+/* Chatbot Styles */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-family: 'Segoe UI', sans-serif;
+}
+.chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00d4ff, #7ee787);
+    border: none;
+    color: #1a1a2e;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,212,255,0.4);
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0,212,255,0.6);
+}
+.chatbot-window {
+    width: 350px;
+    height: 450px;
+    background: #1a1a2e;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.chatbot-window.active {
+    display: flex;
+}
+.chatbot-header {
+    background: linear-gradient(45deg, #00d4ff, #7ee787);
+    color: #1a1a2e;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.chatbot-header h3 {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+.chatbot-close {
+    background: none;
+    border: none;
+    color: #1a1a2e;
+    font-size: 20px;
+    cursor: pointer;
+}
+.chatbot-messages {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.message {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+.message.bot {
+    background: rgba(0,212,255,0.15);
+    color: #fff;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+.message.user {
+    background: linear-gradient(45deg, #00d4ff, #7ee787);
+    color: #1a1a2e;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+    font-weight: 500;
+}
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    gap: 8px;
+}
+.chatbot-input input {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 10px 15px;
+    color: #fff;
+    font-size: 0.9em;
+    outline: none;
+}
+.chatbot-input input::placeholder {
+    color: #8b949e;
+}
+.chatbot-input button {
+    background: #00d4ff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: #1a1a2e;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+.chatbot-input button:hover {
+    background: #7ee787;
+    transform: scale(1.1);
+}
+.quick-replies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0 15px 10px;
+}
+.quick-reply {
+    background: rgba(0,212,255,0.2);
+    border: 1px solid rgba(0,212,255,0.3);
+    color: #00d4ff;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.quick-reply:hover {
+    background: #00d4ff;
+    color: #1a1a2e;
+}
+.typing-indicator {
+    display: none;
+    padding: 10px 15px;
+    color: #8b949e;
+    font-size: 0.9em;
+    font-style: italic;
+}
+.typing-indicator.active {
+    display: block;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8b949e;
+    font-size: 0.9em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.8em; }
+    .skills-grid, .demo-grid, .services-grid { grid-template-columns: 1fr; }
+    .chatbot-window {
+        width: calc(100vw - 40px);
+        height: 400px;
+    }
+}
+</style>
+<base target="_blank">
+</head>
+<body>
+
+<div class="container">
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Reagan Lutwama</h1>
+        <p>Web Developer & HTML Specialist</p>
+        <p style="margin-top: 10px; color: #8b949e;">HTML | CSS | JavaScript | WordPress | Blogger</p>
+        <div class="badge">Available for Freelance Work</div>
+    </div>
+
+    <!-- Skills with Code Examples -->
+    <div class="skills-section">
+        <h2>My Skills & Code Examples</h2>
+        <div class="skills-grid">
+
+            <!-- HTML Skill -->
+            <div class="skill-card">
+                <h3>🌐 HTML5</h3>
+                <div class="code-preview">
+<span class="comment">&lt;!-- Clean Semantic HTML --&gt;</span>
+<span class="tag">&lt;section</span> <span class="attr">class</span>=<span class="string">"hero"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h1&gt;</span>Welcome to My Site<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Responsive & accessible<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;button</span> <span class="attr">class</span>=<span class="string">"cta"</span><span class="tag">&gt;</span>
+    Get Started
+  <span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/section&gt;</span>
+                </div>
+                <p style="margin-top: 15px; color: #b8c5d6; font-size: 0.9em;">
+                    Semantic markup, accessibility, SEO-friendly structure
+                </p>
+            </div>
+
+            <!-- CSS Skill -->
+            <div class="skill-card">
+                <h3>🎨 CSS3</h3>
+                <div class="code-preview">
+<span class="comment">/* Modern CSS with Animations */</span>
+.<span class="function">card</span> {
+  <span class="attr">display</span>: <span class="string">flex</span>;
+  <span class="attr">background</span>: <span class="function">linear-gradient</span>(
+    <span class="number">45deg</span>, <span class="string">#00d4ff</span>, <span class="string">#7ee787</span>
+  );
+  <span class="attr">border-radius</span>: <span class="number">15px</span>;
+  <span class="attr">transition</span>: <span class="string">transform 0.3s</span>;
+}
+.<span class="function">card:hover</span> {
+  <span class="attr">transform</span>: <span class="function">translateY</span>(<span class="number">-5px</span>);
+  <span class="attr">box-shadow</span>: <span class="number">0 10px 30px</span> <span class="function">rgba</span>(<span class="number">0,212,255,0.3</span>);
+}
+                </div>
+                <p style="margin-top: 15px; color: #b8c5d6; font-size: 0.9em;">
+                    Flexbox, Grid, Animations, Responsive Design
+                </p>
+            </div>
+
+            <!-- JavaScript Skill -->
+            <div class="skill-card">
+                <h3>⚡ JavaScript</h3>
+                <div class="code-preview">
+<span class="comment">// Interactive Web Applications</span>
+<span class="keyword">const</span> <span class="function">calculateTotal</span> = (items) => {
+  <span class="keyword">return</span> items.<span class="function">reduce</span>((sum, item) => {
+    <span class="keyword">return</span> sum + (item.price * item.qty);
+  }, <span class="number">0</span>);
+};
+
+<span class="comment">// DOM Manipulation</span>
+<span class="keyword">document</span>.<span class="function">querySelector</span>(<span class="string">'.btn'</span>)
+  .<span class="function">addEventListener</span>(<span class="string">'click'</span>, () => {
+    <span class="function">showNotification</span>(<span class="string">'Order placed!'</span>);
+  });
+                </div>
+                <p style="margin-top: 15px; color: #b8c5d6; font-size: 0.9em;">
+                    DOM manipulation, event handling, calculations
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Live Demos -->
+    <div class="demo-section">
+        <h2>Live Interactive Demos</h2>
+        <div class="demo-grid">
+
+            <div class="demo-card">
+                <h3>CSS Animation</h3>
+                <div class="demo-box">
+                    <div class="css-box"></div>
+                </div>
+                <p style="color: #b8c5d6; font-size: 0.9em;">Shape morphing with keyframes</p>
+            </div>
+
+            <div class="demo-card">
+                <h3>Animated Button</h3>
+                <div class="demo-box">
+                    <button class="animated-btn">Hover Me!</button>
+                </div>
+                <p style="color: #b8c5d6; font-size: 0.9em;">Gradient + pulse animation</p>
+            </div>
+
+            <div class="demo-card">
+                <h3>JS Counter Effect</h3>
+                <div class="demo-box">
+                    <div class="js-counter">100%</div>
+                </div>
+                <p style="color: #b8c5d6; font-size: 0.9em;">Animated number display</p>
+            </div>
+
+            <div class="demo-card">
+                <h3>Responsive Grid</h3>
+                <div class="demo-box">
+                    <div class="responsive-grid">
+                        <div class="grid-item">1</div>
+                        <div class="grid-item">2</div>
+                        <div class="grid-item">3</div>
+                        <div class="grid-item">4</div>
+                        <div class="grid-item">5</div>
+                        <div class="grid-item">6</div>
+                    </div>
+                </div>
+                <p style="color: #b8c5d6; font-size: 0.9em;">CSS Grid layout</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Services -->
+    <div class="skills-section">
+        <h2>Services I Offer</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🔧 HTML/CSS Fixes</h3>
+                <p>Broken layouts, responsive issues, bug fixes</p>
+                <p class="price">Starting at $5</p>
+            </div>
+            <div class="service-card">
+                <h3>📄 Landing Pages</h3>
+                <p>Clean, responsive single-page websites</p>
+                <p class="price">Starting at $15</p>
+            </div>
+            <div class="service-card">
+                <h3>🚀 Website Setup</h3>
+                <p>Blogger, WordPress, full website builds</p>
+                <p class="price">Starting at $30</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-section">
+        <h2>Let's Work Together</h2>
+        <p>I deliver clean, working code on time with unlimited revisions on basic issues.</p>
+        <p style="margin-top: 10px; color: #8b949e;">Available on Fiverr: @mitandareagan</p>
+        <a href="https://www.fiverr.com/mitandareagan" class="contact-btn" target="_blank">Hire Me on Fiverr</a>
+        <a href="https://paypal.me/LutwamaReagan" class="contact-btn paypal-btn" target="_blank">Pay via PayPal</a>
+    </div>
+
+    <footer>
+        <p>© 2026 Reagan Lutwama. Built with HTML, CSS & JavaScript.</p>
+    </footer>
+</div>
+
+<!-- Chatbot -->
+<div class="chatbot-container">
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <h3>💬 Reagan's Assistant</h3>
+            <button class="chatbot-close" onclick="toggleChatbot()">✕</button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="message bot">Hi! I'm Reagan's assistant. How can I help you today?</div>
+        </div>
+        <div class="typing-indicator" id="typingIndicator">Reagan's assistant is typing...</div>
+        <div class="quick-replies" id="quickReplies">
+            <span class="quick-reply" onclick="sendQuickReply('What services do you offer?')">Services</span>
+            <span class="quick-reply" onclick="sendQuickReply('How much do you charge?')">Pricing</span>
+            <span class="quick-reply" onclick="sendQuickReply('How long does delivery take?')">Delivery</span>
+            <span class="quick-reply" onclick="sendQuickReply('Can you fix my website?')">Fix Website</span>
+            <span class="quick-reply" onclick="sendQuickReply('How do I hire you?')">Hire Me</span>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">➤</button>
+        </div>
+    </div>
+    <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+</div>
+
+<script>
+// Chatbot Logic
+const chatbotWindow = document.getElementById('chatbotWindow');
+const chatMessages = document.getElementById('chatMessages');
+const chatInput = document.getElementById('chatInput');
+const typingIndicator = document.getElementById('typingIndicator');
+
+function toggleChatbot() {
+    chatbotWindow.classList.toggle('active');
+}
+
+function handleKeyPress(event) {
+    if (event.key === 'Enter') {
+        sendMessage();
+    }
+}
+
+function sendQuickReply(text) {
+    chatInput.value = text;
+    sendMessage();
+}
+
+function sendMessage() {
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Add user message
+    addMessage(message, 'user');
+    chatInput.value = '';
+
+    // Show typing indicator
+    typingIndicator.classList.add('active');
+
+    // Simulate bot response
+    setTimeout(() => {
+        typingIndicator.classList.remove('active');
+        const response = getBotResponse(message.toLowerCase());
+        addMessage(response, 'bot');
+    }, 1000 + Math.random() * 1000);
+}
+
+function addMessage(text, sender) {
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}`;
+    messageDiv.textContent = text;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function getBotResponse(message) {
+    // Services
+    if (message.includes('service') || message.includes('offer') || message.includes('do')) {
+        return "I offer: 1) HTML/CSS fixes ($5), 2) Landing pages ($15), 3) Full website setup ($30). I also do WordPress, Blogger setup, and responsive design. What do you need?";
+    }
+
+    // Pricing
+    if (message.includes('price') || message.includes('cost') || message.includes('charge') || message.includes('how much')) {
+        return "My prices: Basic HTML fix = $5, Landing page = $15, Full website (3 pages) = $30. Custom projects? Message me for a quote!";
+    }
+
+    // Delivery time
+    if (message.includes('time') || message.includes('long') || message.includes('delivery') || message.includes('when') || message.includes('fast')) {
+        return "I deliver fast! Simple fixes = 24 hours, Landing pages = 2-3 days, Full websites = 5-7 days. Rush orders available too!";
+    }
+
+    // Fix website
+    if (message.includes('fix') || message.includes('broken') || message.includes('bug') || message.includes('error') || message.includes('help')) {
+        return "I can fix broken layouts, CSS issues, responsive problems, JavaScript errors, and more. Share your website link and I'll check it out!";
+    }
+
+    // Hire / Contact
+    if (message.includes('hire') || message.includes('contact') || message.includes('order') || message.includes('fiverr') || message.includes('pay')) {
+        return "You can hire me on Fiverr: @mitandareagan. I accept PayPal too. Click the 'Hire Me on Fiverr' button on this page!";
+    }
+
+    // PayPal
+    if (message.includes('paypal') || message.includes('payment')) {
+        return "Yes, I accept PayPal! My PayPal is @LutwamaReagan. You can also pay through Fiverr which is safer for both of us.";
+    }
+
+    // Skills
+    if (message.includes('skill') || message.includes('know') || message.includes('experience') || message.includes('html') || message.includes('css') || message.includes('javascript')) {
+        return "I'm skilled in HTML5, CSS3, JavaScript, WordPress, and Blogger. I build responsive, clean websites with modern animations. Check my code examples above!";
+    }
+
+    // Greetings
+    if (message.includes('hi') || message.includes('hello') || message.includes('hey')) {
+        return "Hello! Welcome to my portfolio. I'm Reagan, a web developer. Ask me about my services, pricing, or how I can help with your website!";
+    }
+
+    // Thanks
+    if (message.includes('thank') || message.includes('thanks') || message.includes('ok') || message.includes('great')) {
+        return "You're welcome! Feel free to ask anything else. Ready to start your project? 😊";
+    }
+
+    // Default
+    return "I can help with website fixes, landing pages, full website builds, and more. Ask me about services, pricing, or how to hire me!";
+}
+
+// Auto-open chat after 5 seconds
+setTimeout(() => {
+    if (!chatbotWindow.classList.contains('active')) {
+        addMessage("👋 Hi there! Have a question about my services? I'm here to help!", 'bot');
+    }
+}, 5000);
+</script>
+
+</body>
+</html>
