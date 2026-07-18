@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reagan Lutwama - Web Developer Portfolio</title>
+<title>Reagan Lutwama — Web Developer for AgriTech & Service Businesses</title>
+<meta name="description" content="Reagan Lutwama builds clean landing pages, farm/marketplace websites, and custom-song service pages. Available on Fiverr for HTML, CSS, JavaScript, React/Vite and GitHub Pages work.">
+<meta property="og:title" content="Reagan Lutwama — Web Developer">
+<meta property="og:description" content="Landing pages, AgriTech websites, custom-song service pages, fixes and GitHub Pages deployment.">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { 
@@ -412,9 +415,9 @@ footer {
     <!-- Hero Section -->
     <div class="hero">
         <h1>Reagan Lutwama</h1>
-        <p>Web Developer & HTML Specialist</p>
-        <p style="margin-top: 10px; color: #8b949e;">HTML | CSS | JavaScript | WordPress | Blogger</p>
-        <div class="badge">Available for Freelance Work</div>
+        <p>Web Developer for AgriTech & Service Businesses</p>
+        <p style="margin-top: 10px; color: #8b949e;">HTML | CSS | JavaScript | React/Vite | GitHub Pages | WordPress | Blogger</p>
+        <div class="badge">Available on Fiverr</div>
     </div>
 
     <!-- Skills with Code Examples -->
@@ -535,24 +538,46 @@ footer {
         </div>
     </div>
 
+    <!-- Featured Projects -->
+    <div class="skills-section">
+        <h2>Featured Projects</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>🌾 ShambaNi Market</h3>
+                <p>AgriTech marketplace connecting lower farmers to ready buyers, with pilot districts, produce listings, cart flow and mobile-first UX.</p>
+                <p class="price">shambani-market.africa</p>
+            </div>
+            <div class="service-card">
+                <h3>🎵 Wimbo Wako</h3>
+                <p>Personalized custom-song service page with samples, packages, WhatsApp ordering and mobile conversion fixes.</p>
+                <p class="price">reaganlutwa.github.io</p>
+            </div>
+            <div class="service-card">
+                <h3>🐄 UnifiedFarmBLM</h3>
+                <p>Farm blog and practical poultry/livestock tools for farmers, built for content, SEO and simple monetization.</p>
+                <p class="price">unifiedfarmblm.com</p>
+            </div>
+        </div>
+    </div>
+
     <!-- Services -->
     <div class="skills-section">
         <h2>Services I Offer</h2>
         <div class="services-grid">
             <div class="service-card">
                 <h3>🔧 HTML/CSS Fixes</h3>
-                <p>Broken layouts, responsive issues, bug fixes</p>
-                <p class="price">Starting at $5</p>
+                <p>Broken layouts, mobile overlap, responsive issues, bug fixes</p>
+                <p class="price">Starting at $10</p>
             </div>
             <div class="service-card">
                 <h3>📄 Landing Pages</h3>
-                <p>Clean, responsive single-page websites</p>
-                <p class="price">Starting at $15</p>
+                <p>Clean, responsive pages built to convert visitors into WhatsApp/Fiverr leads</p>
+                <p class="price">Starting at $25</p>
             </div>
             <div class="service-card">
                 <h3>🚀 Website Setup</h3>
-                <p>Blogger, WordPress, full website builds</p>
-                <p class="price">Starting at $30</p>
+                <p>GitHub Pages, React/Vite builds, Blogger/WordPress setup and SEO basics</p>
+                <p class="price">Starting at $60</p>
             </div>
         </div>
     </div>
@@ -560,10 +585,9 @@ footer {
     <!-- Contact -->
     <div class="contact-section">
         <h2>Let's Work Together</h2>
-        <p>I deliver clean, working code on time with unlimited revisions on basic issues.</p>
+        <p>I deliver clean, working code with clear scope, mobile checks, and revision support. For freelance safety, orders and payment stay on Fiverr.</p>
         <p style="margin-top: 10px; color: #8b949e;">Available on Fiverr: @mitandareagan</p>
-        <a href="https://www.fiverr.com/mitandareagan" class="contact-btn" target="_blank">Hire Me on Fiverr</a>
-        <a href="https://paypal.me/LutwamaReagan" class="contact-btn paypal-btn" target="_blank">Pay via PayPal</a>
+        <a href="https://www.fiverr.com/mitandareagan" class="contact-btn" target="_blank" rel="noopener">Hire Me on Fiverr</a>
     </div>
 
     <footer>
@@ -649,12 +673,12 @@ function addMessage(text, sender) {
 function getBotResponse(message) {
     // Services
     if (message.includes('service') || message.includes('offer') || message.includes('do')) {
-        return "I offer: 1) HTML/CSS fixes ($5), 2) Landing pages ($15), 3) Full website setup ($30). I also do WordPress, Blogger setup, and responsive design. What do you need?";
+        return "I offer: 1) HTML/CSS fixes from $10, 2) conversion landing pages from $25, 3) GitHub Pages/React or Blogger/WordPress setup from $60. What do you need?";
     }
 
     // Pricing
     if (message.includes('price') || message.includes('cost') || message.includes('charge') || message.includes('how much')) {
-        return "My prices: Basic HTML fix = $5, Landing page = $15, Full website (3 pages) = $30. Custom projects? Message me for a quote!";
+        return "My starting prices: HTML/CSS fix from $10, landing page from $25, website setup from $60. Custom AgriTech/service projects get a clear quote first.";
     }
 
     // Delivery time
@@ -669,12 +693,12 @@ function getBotResponse(message) {
 
     // Hire / Contact
     if (message.includes('hire') || message.includes('contact') || message.includes('order') || message.includes('fiverr') || message.includes('pay')) {
-        return "You can hire me on Fiverr: @mitandareagan. I accept PayPal too. Click the 'Hire Me on Fiverr' button on this page!";
+        return "You can hire me on Fiverr: @mitandareagan. For freelance safety, please keep orders and payment on Fiverr.";
     }
 
-    // PayPal
+    // Payments stay on Fiverr for freelance safety
     if (message.includes('paypal') || message.includes('payment')) {
-        return "Yes, I accept PayPal! My PayPal is @LutwamaReagan. You can also pay through Fiverr which is safer for both of us.";
+        return "For freelance work, I keep payment on Fiverr because it protects both buyer and seller. My profile is @mitandareagan.";
     }
 
     // Skills
